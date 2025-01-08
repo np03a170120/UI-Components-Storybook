@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { FormProvider, useForm } from "react-hook-form";
+import "./App.css";
+import { FormInputText } from "./ui/functional/form/form-input/FormInputText";
+import { Button, Stack } from "@mui/material";
+import { FormRadio } from "./ui/functional/form/form-radio/FormRadio";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const methods = useForm({
+    defaultValues: {
+      name: "",
+      age: "",
+      sex: "",
+      formRadio: "option 1",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
+  const options = [
+    { label: "option 1", value: "option 1" },
+    { label: "option 2", value: "option 2" },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <FormProvider {...methods}>
+      <h1>Playground</h1>
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <Stack gap={2}>
+          <FormInputText name="name" label="Name" size="small" />
+          <FormInputText name="age" label="Age" size="small" />
+          <FormInputText name="sex" label="Sex" size="small" />
+          <FormRadio
+            name="formRadio"
+            size="small"
+            label="Form Radio"
+            options={options}
+          />
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
+        </Stack>
+      </form>
+    </FormProvider>
+  );
 }
 
-export default App
+export default App;
