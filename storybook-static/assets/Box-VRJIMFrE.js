@@ -1,0 +1,1 @@
+import{g as e,f as a,T as s,C as t}from"./memoTheme-CkIRWuDJ.js";import{c as o}from"./createBox-DuIWSKLp.js";const r=e("MuiBox",["root"]),m=a(),c=o({themeId:s,defaultTheme:m,defaultClassName:r.root,generateClassName:t.generate});export{c as B};

@@ -1,0 +1,1 @@
+import"./index-emeq7cRi.js";import{u as o,T as n,p as t}from"./memoTheme-CkIRWuDJ.js";function u(e){return e&&e.ownerDocument||document}function s(e){return u(e).defaultView||window}function a(){const e=o(t);return e[n]||e}export{u as a,s as o,a as u};

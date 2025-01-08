@@ -1,0 +1,1 @@
+import{r}from"./index-emeq7cRi.js";import"./jsx-runtime-D7bgWBpP.js";function i(e,n=166){let t;function o(...u){const a=()=>{e.apply(this,u)};clearTimeout(t),t=setTimeout(a,n)}return o.clear=()=>{clearTimeout(t)},o}const c=r.createContext(),m=()=>r.useContext(c)??!1;export{i as d,m as u};
